@@ -3,18 +3,19 @@
 
 <div class="main-container">
   <div class="content-container">
-    <kendo-multiselect
+    <!-- <kendo-multiselect
       #list
-
       [data]="data"
       [(ngModel)]="value"
+      formControlName="emails"
       [textField]="'text'"
-      [valueField]="'value'"
+      [valueField]="'value'" 
       (valueChange)="onValueChange()"
       [autoClose]="false"
       [filterable]="true" 
     >
-      <ng-template kendoMultiSelectHeaderTemplate>
+    <ng-template kendoMultiSelectHeaderTemplate>
+        <input type="search"  [(ngModel)]="searchText" (input)="onSearch()"  name="lksjd"/>
         <span style="margin-left:11px">
           <input
             type="checkbox"
@@ -42,7 +43,35 @@
         </span>
         <span>{{ dataItem.text }}</span>
       </ng-template>
-    </kendo-multiselect>
+    </kendo-multiselect> -->
+
+    <kendo-label text="Items:" >
+      <kendo-multiselecttree 
+      [kendoMultiSelectTreeHierarchyBinding]="data" 
+      childrenField="items"
+      textField="text"
+      valueField="text"
+      [filterable]="true" 
+      (valueChange)="onValueChange()"
+      [(ngModel)]="value" 
+      placeholder="select item" >
+        <ng-template kendoMultiSelectHeaderTemplate > 
+          <span style="margin-left:25px">
+             <input type="checkbox" id="chk" kendoCheckBox [checked]="isChecked" [indeterminate]="isIndet" (click)="onClick()" /> 
+             <kendo-label for="chk">{{ toggleAllText }}</kendo-label> 
+            </span> 
+          </ng-template> 
+          
+          <ng-template kendoMultiSelectItemTemplate let-dataItem>
+            <span>
+               <kendo-label for="chk-{{ dataItem.value }}">
+                 <input type="checkbox" id="chk-{{ dataItem.value }}" kendoCheckBox [checked]="isItemSelected(dataItem)" />
+                </kendo-label>
+               </span>
+               <span>{{ dataItem.text }}</span> 
+            </ng-template>
+          </kendo-multiselecttree>
+        </kendo-label>
 
   </div>
 </div>

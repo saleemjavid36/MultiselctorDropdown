@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+.k-chip-action ,.k-chip-remove-action{ 
+    display: none !important;
+}
+
+.k-input-values {
+    max-width: 120px;
+    display: flex;
+    flex-flow: row wrap; 
+    align-items: center; 
+    cursor: text; 
+    overflow: hidden; 
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis !important;
+}
+
+.k-chip-content {
+    padding: 0.5em 0;
+    margin: -0.5em 0;
+    min-width: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    overflow: hidden; 
+    flex: 1 1 auto;
+}
+
+.k-chip *, .k-chip *::before, .k-chip *::after {
+    box-sizing: border-box;
+}
+
+.k-chip-solid-base {
+    border: none !important;
+    border-color: white !important; 
+    color: #424242;
+}
+.k-chip-md { 
+    padding: 4px 4px;
+    font-size: 14px;
+    line-height: 1; 
+    background-color:white;
+}

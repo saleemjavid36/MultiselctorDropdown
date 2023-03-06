@@ -51,7 +51,11 @@ export class AppComponent  implements AfterViewInit{
   ];
   public value: any = [];
 
+
+
+  
   public isChecked = false;
+  public searchText: string = '';
 
   public get isIndet() {
     return (
@@ -75,24 +79,28 @@ export class AppComponent  implements AfterViewInit{
   public onValueChange() {
     this.isChecked = this.value.length === this.data.length;
   }
-  
 
+  public onSearch() {
+    const contains = (value: any) => (s: { text: string }) =>
+      s.text.toLowerCase().indexOf(value.toLowerCase()) !== -1;
 
-  // @ViewChild("list") list: { filterChange: { asObservable: () => { (): any; new(): any; pipe: { (arg0: OperatorFunction<unknown, { text: string; value: number; }[]>): { (): any; new(): any; subscribe: { (arg0: (x: { text: string; value: number; }[]) => void): void; new(): any; }; }; new(): any; }; }; }; loading: boolean; } | any;
-  // public source: Array<{ text: string; value: number }> = [
-  //   { text: "Item 1", value: 1 },
-  //   { text: "Item 2", value: 2 },
-  //   { text: "Item 3", value: 3 },
-  //   { text: "Item 4", value: 4 },
-  //   { text: "Item 5", value: 5 },
-  //   { text: "Item 6", value: 6 },
-    
-    
-  // ];
-  // public data: Array<{ text: string; value: number }>;
-  // public defaultItem: { text: string; value: number } = {
-  //   text: "Select item",
-  //   value: 0
-  // };
+    this.list.filterChange.emit(this.searchText);
+
+    if (this.searchText === '') {
+      this.data = this.source.slice();
+    } else {
+      this.list.loading = true;
+      from([this.source])
+        .pipe(
+          delay(200),
+          map((data) => data.filter(contains(this.searchText)))
+        )
+        .subscribe((x: { text: string; value: number }[]) => {
+          this.data = x;
+          this.list.loading = false;
+        });
+    }
+  }
+
 
 }
