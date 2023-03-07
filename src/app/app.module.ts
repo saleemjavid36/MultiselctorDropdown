@@ -10,12 +10,21 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { LabelModule } from "@progress/kendo-angular-label";
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MultiselectorsComponent } from './multiselectors/multiselectors.component';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { NotificationModule } from "@progress/kendo-angular-notification";
+import { VfButtonsComponent } from './shared/vf-buttons/vf-buttons.component';
+import { VfButtonGroupComponent } from './shared/vf-button-group/vf-button-group.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MultiselectorsComponent,
+    ButtonsComponent,
+    VfButtonsComponent,
+    VfButtonGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     LabelModule,
     InputsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

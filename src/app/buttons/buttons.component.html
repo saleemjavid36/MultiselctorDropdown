@@ -1,0 +1,16 @@
+<div class="button-main-container">
+    <div class="button-content-container">
+        
+        <div class="buttongroup-main-container">
+            <vf-button-group></vf-button-group>
+        </div>  
+
+        <hr class="line">
+            <vf-buttons icon="folder" title="calendar" (btnClick)="clickHandler()"></vf-buttons>
+
+        <h1 *ngIf="clicked">Button Triggered</h1>
+        <h1 *ngIf="!clicked">Button Un Triggered</h1>
+    </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+<div class="teamMate">
+    <img [src]="img" alt="saleemjavid" />
+    <span
+      class="k-icon k-i-circle status"
+      [ngStyle]="{ color: status }"
+    ></span>
+    <span class="mate-info">
+      <h2 tabindex="0">Saleemjavid36</h2>
+      <p>Team Lead</p>
+    </span>
+  </div>
+
+  <kendo-buttongroup width="70%" heig selection="single">
+    <button
+      *ngFor="let button of buttons"
+      kendoButton
+      [toggleable]="true"
+      [selected]="button.selected"
+      (selectedChange)="selectedChange($event, button)"
+    >
+      <span>
+        <span class="k-icon {{ button.icon }}"></span>
+        {{ button.text }}
+    </span>
+</button>
+  </kendo-buttongroup>
