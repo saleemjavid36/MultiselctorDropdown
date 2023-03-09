@@ -15,7 +15,9 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { NotificationModule } from "@progress/kendo-angular-notification";
 import { VfButtonsComponent } from './shared/vf-buttons/vf-buttons.component';
 import { VfButtonGroupComponent } from './shared/vf-button-group/vf-button-group.component';
-
+import { VfSplitButtonComponent } from './shared/vf-split-button/vf-split-button.component';
+import { VfFloatingactionbuttonComponent } from './shared/vf-floatingactionbutton/vf-floatingactionbutton.component';
+import { LayoutModule } from '@progress/kendo-angular-layout';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { VfButtonGroupComponent } from './shared/vf-button-group/vf-button-group
     MultiselectorsComponent,
     ButtonsComponent,
     VfButtonsComponent,
-    VfButtonGroupComponent
+    VfButtonGroupComponent,
+    VfSplitButtonComponent,
+    VfFloatingactionbuttonComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { VfButtonGroupComponent } from './shared/vf-button-group/vf-button-group
     InputsModule,
     FormsModule,
     ReactiveFormsModule,
-    NotificationModule
+    NotificationModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

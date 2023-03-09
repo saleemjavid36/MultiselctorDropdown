@@ -1,0 +1,42 @@
+<div class="notes-wrap k-block">
+    <div class="k-overlay" *ngIf="dialOpen"></div>
+      <h2 class="title">SaleemJavid:</h2>
+      <textarea class="k-textarea k-input" [value]="text"></textarea>
+
+    <kendo-floatingactionbutton
+    [icon]="icon"
+    [dialItems]="contacts"
+    positionMode="absolute"
+    title="Contacts"
+    (open)="onDialOpen()"
+    (close)="onDialClose()"
+
+    >
+    <ng-template kendoDialItemTemplate let-item >
+      <button (click)="shareItems(item.text)" class="shareButton">
+        <span class="k-fab-item-text" >{{ item.text }}</span>
+        <kendo-avatar 
+          class="contact-avatar"
+          shape="circle"
+          [imageSrc]="item.icon"
+        ></kendo-avatar>
+      </button>
+        
+      </ng-template>
+    </kendo-floatingactionbutton>
+    
+</div>
+    
+    
+    
+    
+    
+    <!-- <kendo-floatingactionbutton
+      icon="upload"
+      title="Add New"
+      [align]="{ horizontal: 'center', vertical: 'bottom' }"
+      [dialItems]="labelItems"
+      [offset]="{ x: '210px', y: '160px' }"
+      themeColor="inverse"
+    >
+    </kendo-floatingactionbutton> -->

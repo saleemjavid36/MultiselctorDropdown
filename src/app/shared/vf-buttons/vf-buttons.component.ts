@@ -1,5 +1,5 @@
 import {  Component,  EventEmitter,  Input,  OnInit, Output } from '@angular/core';
-import { ButtonSize } from '@progress/kendo-angular-buttons';
+import {  ButtonSize } from '@progress/kendo-angular-buttons';
 
 @Component({
   selector: 'vf-buttons',
@@ -12,15 +12,27 @@ export class VfButtonsComponent implements OnInit {
   @Output() btnClick = new EventEmitter();
   
   @Input() size:string | any
+  @Input() fillMode:string | any
+
+  @Input() themeColor:string | any
   
-  constructor() { }
-  public sizes: ButtonSize = "medium";
+
+  // public sizess: ButtonSize = 'large';
+
+  constructor() { 
+   
+  }
+
+  ngDoCheck(){
+  
+  }
 
   ngOnInit(): void {
-    
+     
   }
 
   onClick() {
 		this.btnClick.emit();
 	}
+
 }

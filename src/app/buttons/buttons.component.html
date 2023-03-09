@@ -6,10 +6,38 @@
         </div>  
 
         <hr class="line">
-            <vf-buttons icon="folder" title="calendar" (btnClick)="clickHandler()"></vf-buttons>
+            
+            <vf-buttons 
+            icon="folder"
+            title="calendar"
+            (btnClick)="clickHandler()"  
+            size="large"
+            fillMode="outline"
+            ></vf-buttons>
 
         <h1 *ngIf="clicked">Button Triggered</h1>
         <h1 *ngIf="!clicked">Button Un Triggered</h1>
+        
+        <hr class="line">
+        
+        <vf-split-button 
+            [data]="saveIconData" 
+            icon="save"
+            arrowButtonIcon="chevron-down" 
+        >
+        {{splitlabel}}
+        </vf-split-button>
+
+        <div class="split-button-content-container">
+            <button class="split-buttons" [disabled]="pdfDisabled"   [ngStyle]="{'background-color': pdfDisabled ? 'silver' : '#179adb'}">PDF Button</button>
+            
+            <button class="split-buttons" [disabled]="pngDisabled" [ngStyle]="{'background-color': pngDisabled ? 'silver' : '#179adb'}">PNG Button</button>
+            
+            <button class="split-buttons" [disabled]="driveisabled" [ngStyle]="{'background-color': driveisabled ? 'silver' : '#179adb'}">DRIVE Button</button>
+        </div>
+        <vf-floatingactionbutton></vf-floatingactionbutton>
+
+    
     </div>
 </div>
 
