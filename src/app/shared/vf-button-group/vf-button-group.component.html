@@ -1,5 +1,8 @@
+
+
 <div class="teamMate">
-    <img [src]="img" alt="saleemjavid" />
+  <img *ngFor="let image of myFiles" [src]="image.src" [alt]="image.name" />
+    
     <span
       class="k-icon k-i-circle status"
       [ngStyle]="{ color: status }"

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { DataserviceService } from "../dataservice.service";
 import { IButton } from "./buttonInterface";
 
 
@@ -18,10 +19,13 @@ export class ButtonsComponent implements OnInit {
   pdfDisabled=true
   pngDisabled=true
   driveisabled=true
-  constructor() { }
+  constructor(private data:DataserviceService) { }
 
   ngOnInit(): void {
+    
   }
+
+ 
 
   public saveIconData = [
     {

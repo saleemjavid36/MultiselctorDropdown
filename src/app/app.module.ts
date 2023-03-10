@@ -18,6 +18,12 @@ import { VfButtonGroupComponent } from './shared/vf-button-group/vf-button-group
 import { VfSplitButtonComponent } from './shared/vf-split-button/vf-split-button.component';
 import { VfFloatingactionbuttonComponent } from './shared/vf-floatingactionbutton/vf-floatingactionbutton.component';
 import { LayoutModule } from '@progress/kendo-angular-layout';
+import { VfUploadsComponent } from './shared/vf-uploads/vf-uploads.component';
+import { UploadsModule } from '@progress/kendo-angular-upload';
+import { HttpClientModule } from '@angular/common/http';
+import { DataserviceService } from './dataservice.service';
+
+
 
 
 @NgModule({
@@ -28,7 +34,8 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
     VfButtonsComponent,
     VfButtonGroupComponent,
     VfSplitButtonComponent,
-    VfFloatingactionbuttonComponent
+    VfFloatingactionbuttonComponent,
+    VfUploadsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +48,11 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
     FormsModule,
     ReactiveFormsModule,
     NotificationModule,
-    LayoutModule
+    LayoutModule,
+    UploadsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

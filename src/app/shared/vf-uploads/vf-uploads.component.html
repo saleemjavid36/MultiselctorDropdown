@@ -1,0 +1,26 @@
+
+<div class="dropzone-wrapper">
+    <div class="fileselect-wrapper">
+      <kendo-uploaddropzone zoneId="myZone">
+        Only JPEG , PNG and svg files are allowed.
+      </kendo-uploaddropzone>
+      
+      <kendo-fileselect
+        zoneId="myZone"
+        (select)="onSelect($event)"
+        (remove)="onRemove($event)"
+        [restrictions]="myRestrictions"
+        [showFileList]="false"
+        [multiple]="false"
+      >
+      </kendo-fileselect>
+    
+    </div>
+    <div class="images-wrapper">
+
+        <img *ngFor="let image of myFiles" [src]="image.src" [alt]="image.name" />
+      
+    </div>
+  </div>
+
+  <!-- <div class="file-image" *ngFor="let image of myFiles"> -->

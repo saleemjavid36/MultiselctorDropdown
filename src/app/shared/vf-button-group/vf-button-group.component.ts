@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FileInfo } from '@progress/kendo-angular-upload';
 import { IButton } from 'src/app/buttons/buttonInterface';
+import { DataserviceService } from 'src/app/dataservice.service';
+
+
+interface ImageInfo extends FileInfo {
+  src?: string;
+}
 
 @Component({
   selector: 'vf-button-group',
@@ -8,9 +15,12 @@ import { IButton } from 'src/app/buttons/buttonInterface';
 })
 export class VfButtonGroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data:DataserviceService) { }
+  public myFiles: ImageInfo[] = [];
 
   ngOnInit(): void {
+    this.myFiles = this.data.getFiles();
+
   }
 
   public status = "#10b507";
