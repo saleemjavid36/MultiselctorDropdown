@@ -32,6 +32,7 @@
     border: 1px solid #EBEBEB;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     padding:10px;
   }
   
@@ -60,4 +61,8 @@
   
   .custom-dropzone p {
     margin: 10px;
+  }
+  .droped-image{
+    height: 160px;
+    width: 160px;
   }

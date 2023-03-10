@@ -67,6 +67,9 @@ export class VfUploadsComponent implements OnInit {
       });
 
     }
+    if(this.myFiles.length>=1){
+      this.myFiles.shift()
+    }
   }
 
   public onRemove(ev: RemoveEvent): void {
